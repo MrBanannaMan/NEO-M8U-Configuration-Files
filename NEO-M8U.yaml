@@ -6,13 +6,6 @@ debug: 1
 #   mask: 3103   # Uncommenting the above saves this configuration file to the non-volatile flash. 
 #   device: 4    # Unnecessary to remove since ROS runs this script every time it launches
 
-
-
-
-
-
-
-
 # Sub-Section 0 PRT - Port, USB, UART, SPI and DDC settings
 
 device: /dev/ttyACM0
@@ -21,28 +14,41 @@ uart1:
   baudrate: 115200    # I think the NEO-M8U uses the USB port with the Spaceley, so this may be unnecessary.. 
                       # Doesn't matter though
   #in: 0              # Does not allow any UART communication - Default everything allowed
-  #out: 32            # Allows only RTCM3 as output protocl - Default everything allowed
+  #out: 32            # Allows only RTCM3 as output protocl - Default everything allowed, RTCM is for RTK i want 2 remove
   
 frame_id: gps
 
 # Sub-Section 1 MSG - Message Settings (enable/disable, update rate)
 
 # Sub-Section 2 INF - Information Output Settings (Errors, Warnings, Notice, Test etc.)
+inf:
+  all: true
+      
+publish:
+  all: true
 
 # Sub-Section 3 NAV - Settings for Navigation Parameters, Receiver Datum, Measurement and Navigation Rate, SBAS, NMEA and
                      # Time mode
                      
 # NAV5Parameters
+dynamic_model: 0    # Zero is for Portable Devices
+fix_mode: 3         # Auto 2D/3D Fix Mode. 3D = Altitude + Long. + Lat., 2D = Long. + Lat.
+                    # 2D Requires 3 Satellites, 3D Requires 4 Satellites
+                    # 3D takes precedent unless only 3 visible satellites
+dr_limit: 0
 
 
 # NAVX5 Parameters
 
 
 # DAT Parameters
-
+dat:
+  set: false
 
 # RATE Parameters
-
+rate: 1             # Measurement rate in Hz which is 1 relative to nav_rate
+nav_rate: 1         # Number of Measurement cycles
+# Note that for NEO-M8U which is a UDR device 1 is reccommended for nav_rate
 
 # SBAS Parameters
 
@@ -50,7 +56,7 @@ frame_id: gps
 # NMEA Parameters
 nmea:
   set: true
-  version: 64         # Hexadecimal for NMEA version 4.0 supported by NEO-M8U
+  version: 65         # Hexadecimal for NMEA version 4.1 supported by NEO-M8U. 4.1 must be used to support Galileo and is set here!!
   num_sv: 8           # Number of satellite's that can spit information from each TalkerID (i.e. GN = Glonass talker ID)
   sv_numbering: 1
   compat: true
@@ -75,9 +81,7 @@ nmea:
   bds_talker_id: [0,0]
   
 # TMODE2 Parameters
-
-
-                 
+         
 # Sub-Section 4 RXM - GNSS Settings, Power Mode Settings, Time Pulse Settings, Jamming/Interference Monitor Settings
 # GNSS Parameters
 gnss:
@@ -95,9 +99,7 @@ gnss:
 # Sub-Section 10 ANT - Antenna Configuration
 
 
-
 # Sub-Section 11 LOG - Logging Configuration
-
 
 
 # Sub-Section 12 FTS - Disciplining Configuration. Only applicable to th eTime & Frequency Sync product
