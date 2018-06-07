@@ -37,6 +37,11 @@ With U-Center, the NEO-M8U module can be configured three different ways, howeve
 ![alt text](http://andrea-toscano.com/wp-content/uploads/2015/05/U-Center-magic-wand.png)
 
 4. On the toolbar, go to Tools -> GNSS Configuration and select the Configuration_Ublox_Neo_M8U.txt configuration file downloaded from my github. Make sure the "Store Configuration in BBR/Flash" box is checked!
+
+![alt text](http://andrea-toscano.com/wp-content/uploads/2015/05/U-Center-GNSS-Configuration-300x251.png)
+
+![alt text](http://andrea-toscano.com/wp-content/uploads/2015/05/U-Center-upload-configuration.png)
+
 5. On the toolbar, go to View -> Message View and scroll down to UBX -> CFG.
 6. 
 
