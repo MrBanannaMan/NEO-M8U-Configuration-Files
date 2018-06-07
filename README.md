@@ -35,6 +35,7 @@ With U-Center, the NEO-M8U module can be configured three different ways, howeve
 3. Click on the Magic Wand at the top toolbar to enable autoset for the Baud Rate. Wait for the "Connection Status" to turn green.
 
 ![alt text](http://andrea-toscano.com/wp-content/uploads/2015/05/U-Center-magic-wand.png)
+
 4. On the toolbar, go to Tools -> GNSS Configuration and select the Configuration_Ublox_Neo_M8U.txt configuration file downloaded from my github. Make sure the "Store Configuration in BBR/Flash" box is checked!
 5. On the toolbar, go to View -> Message View and scroll down to UBX -> CFG.
 6. 
