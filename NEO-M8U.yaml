@@ -1,23 +1,57 @@
 # Unique Parameters for Ublox ROS driver for the NEO-M8U:
+# This configuration file was written following and referencing the UBX-13002887 document.
+
+debug: 1
+# save:
+#   mask: 3103   # Uncommenting the above saves this configuration file to the non-volatile flash. 
+#   device: 4    # Unnecessary to remove since ROS runs this script every time it launches
 
 
-# GNSS Parameters
-gnss:
-  gps: true
-  glonass: true
-  beidou: false
-  galileo: true
-  qzss: false
-  sbas: true
-  imes: false
+
+
+
+
+
+
+# Sub-Section 0 PRT - Port, USB, UART, SPI and DDC settings
+
+device: /dev/ttyACM0
+
+uart1:
+  baudrate: 115200    # I think the NEO-M8U uses the USB port with the Spaceley, so this may be unnecessary.. 
+                      # Doesn't matter though
+  #in: 0              # Does not allow any UART communication - Default everything allowed
+  #out: 32            # Allows only RTCM3 as output protocl - Default everything allowed
   
-# Message Subscriptions
+frame_id: gps
 
+# Sub-Section 1 MSG - Message Settings (enable/disable, update rate)
+
+# Sub-Section 2 INF - Information Output Settings (Errors, Warnings, Notice, Test etc.)
+
+# Sub-Section 3 NAV - Settings for Navigation Parameters, Receiver Datum, Measurement and Navigation Rate, SBAS, NMEA and
+                     # Time mode
+                     
+# NAV5Parameters
+
+
+# NAVX5 Parameters
+
+
+# DAT Parameters
+
+
+# RATE Parameters
+
+
+# SBAS Parameters
+
+                     
 # NMEA Parameters
 nmea:
   set: true
-  version: 65
-  num_sv: 8
+  version: 64         # Hexadecimal for NMEA version 4.0 supported by NEO-M8U
+  num_sv: 8           # Number of satellite's that can spit information from each TalkerID (i.e. GN = Glonass talker ID)
   sv_numbering: 1
   compat: true
   consider: true
@@ -30,13 +64,41 @@ nmea:
     date: true
     gps_only: true
     track: true
-  gnssToFilter:
+  gnssToFilter:       # True = Disables reporting of those satellites, False = Enables Reporting
     gps: false
-    sbas: true
+    sbas: false
     qzss: true
     glonass: false
     beidou: true
-  main_talker_id: 1
-  gsv_talker_id: 1
+  main_talker_id: 1   # Sets the main talker ID to GPS
+  gsv_talker_id: 1    # Sets the default main talker ID to GPS
   bds_talker_id: [0,0]
+  
+# TMODE2 Parameters
+
+
+                 
+# Sub-Section 4 RXM - GNSS Settings, Power Mode Settings, Time Pulse Settings, Jamming/Interference Monitor Settings
+# GNSS Parameters
+gnss:
+  gps: true
+  glonass: true
+  beidou: false
+  galileo: true
+  qzss: false
+  sbas: true
+  imes: false
+  
+#Sub-Section 9 RINV - Remote Inventory Configuration
+
+
+# Sub-Section 10 ANT - Antenna Configuration
+
+
+
+# Sub-Section 11 LOG - Logging Configuration
+
+
+
+# Sub-Section 12 FTS - Disciplining Configuration. Only applicable to th eTime & Frequency Sync product
 
