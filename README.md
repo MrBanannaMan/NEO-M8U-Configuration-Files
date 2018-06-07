@@ -1,9 +1,11 @@
 # NEO-M8U-Configuration
 GNSS Configuration for the NEO-M8U Configuration via .yaml file in ROS using Kumar Robotics Ublox ROS drivers and in Windows via Ublox's U-Center. By completing this "tutorial" you should be able to perform the following:
 
-- [ ] Configure the NEO-M8U Module to track GPS, GLONASS, and Galileo Satellites
-- [ ] Poll raw NMEA 0183 data
-- [ ] Map the NMEA data to Google Maps, Google Earth, Bing Maps, gpsd, etc. depending on API's and time available
+- [ ] Configure the NEO-M8U Module to track GPS, GLONASS, and Galileo Satellites in Windows
+- [ ] Poll raw NMEA 0183 data in Windows
+- [ ] Configure the NEO-M8U Module to track GPS, GLONASS, and Galileo Satellites in ROS/Linux
+- [ ] Poll & bag "NavSatFix" data specified by: http://docs.ros.org/api/sensor_msgs/html/msg/NavSatFix.html
+- [ ] (Optional) Map the NMEA data to Google Maps, Google Earth, Bing Maps, gpsd, etc. depending on API's and time available
 
 ## For Configuration in Windows via U-Center:
 ### Installing U-Center:
