@@ -68,7 +68,7 @@ nmea:
     msk_pos: true
     time: true
     date: true
-    gps_only: true
+    gps_only: false
     track: true
   gnssToFilter:       # True = Disables reporting of those satellites, False = Enables Reporting
     gps: false
