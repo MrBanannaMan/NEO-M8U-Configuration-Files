@@ -64,12 +64,12 @@ nmea:
   limit82: true
   high_prec: false
   filter:
-    pos: true
-    msk_pos: true
-    time: true
-    date: true
+    pos: false
+    msk_pos: false
+    time: false
+    date: false
     gps_only: false
-    track: true
+    track: false
   gnssToFilter:       # True = Disables reporting of those satellites, False = Enables Reporting
     gps: false
     sbas: false
