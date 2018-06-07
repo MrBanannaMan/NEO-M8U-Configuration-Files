@@ -30,7 +30,7 @@ With U-Center, the NEO-M8U module can be configured three different ways, howeve
   given values no matter the status of any power supplies or resets.
 
 ### U-Center SQI Configuration
-1. Download the Configuration_Ublox_Neo_M8U.txt configuration file from my github.
+1. Download the Configuration_Ublox_Neo_M8U.txt configuration file from my github. Note to self, this configuration file will be tested and finalized then exported in Windows U-Center then put onto github. The instructions to export this file are found in the U-Center_User_Guide pdf file.
 2. Connect the mPCIe NEO-M8U card to the mPCIe to USB adapter and plug into your PC then open U-Center.
 3. Click on the Magic Wand at the top toolbar to enable autoset for the Baud Rate. Wait for the "Connection Status" to turn green.
 
