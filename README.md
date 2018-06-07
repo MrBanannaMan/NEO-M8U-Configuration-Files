@@ -44,7 +44,7 @@ With U-Center, the NEO-M8U module can be configured three different ways, howeve
 
 5. On the toolbar, go to View -> Message View and scroll down to UBX -> CFG.
 
-~[alt text](http://andrea-toscano.com/wp-content/uploads/2015/05/U-Center-Message-View-220x300.png)
+![alt text](http://andrea-toscano.com/wp-content/uploads/2015/05/U-Center-Message-View-220x300.png)
 
 6. If any other parameters are desired, input them into the UBX -> CFG settings and click "Send" when you are done on the bottom left toolbar.
 
@@ -52,7 +52,7 @@ With U-Center, the NEO-M8U module can be configured three different ways, howeve
 
 7. Back on the U-Center main page, you must go to Receiver -> Action and select "Save Config". If you do not do this step then the configuration settings will not be flashed to the SIQ memory on the NEO-M8U module.
 
-http://andrea-toscano.com/wp-content/uploads/2015/05/U-Center-save-configuration.png
+~[alt text](http://andrea-toscano.com/wp-content/uploads/2015/05/U-Center-save-configuration.png)
 
 - [x] Configure the NEO-M8U Module to track GPS, GLONASS, and Galileo Satellites in Windows
 
