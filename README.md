@@ -54,15 +54,18 @@ With U-Center, the NEO-M8U module can be configured three different ways, howeve
 
 ![alt text](http://andrea-toscano.com/wp-content/uploads/2015/05/U-Center-save-configuration.png)
 
+
+Congratulations! You should now be able to,
 - [x] Configure the NEO-M8U Module to track GPS, GLONASS, and Galileo Satellites in Windows
+Cool! :squirrel:
 
 ### U-Center Data Polling
-The main goal of this section is to parse NMEA 1804 strings from the U-Center application so that we can decipher the receiver's position in latitude and longitude for any Global Navigation Satellite System.
+The main goal of this section is to parse NMEA 1803 strings from the U-Center application so that we can decipher the receiver's position in latitude and longitude for any Global Navigation Satellite System.
 
 
 
 
-## For Configuration in Linux via ROS
+## For Configuration in Linux via ROS :penguin:
 Ensure that the ROS system you are working with is the Kinetic distribution. Download the NEO-M8U.yaml configuration file in my github.
 
 
