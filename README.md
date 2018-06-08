@@ -63,8 +63,8 @@ Cool! :squirrel:
 ### U-Center Data Polling
 The main goal of this section is to parse NMEA 1803 strings from the U-Center application so that we can decipher the receiver's position in latitude and longitude for any Global Navigation Satellite System.
 
-
-
+## For Configuration in Linux :penguin: via Wine (Windows Emulator)
+Ensure that the Linux operating system is Ubuntu and is a version greater than or equal to v16.
 
 ## For Configuration in Linux :penguin: via ROS
 Ensure that the ROS system you are working with is the Kinetic distribution. Download the NEO-M8U.yaml configuration file in my github.
