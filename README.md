@@ -4,7 +4,8 @@ GNSS Configuration for the NEO-M8U Configuration via .yaml file in ROS using Kum
 - [ ] Configure the NEO-M8U Module to track GPS, GLONASS, and Galileo Satellites in Windows
 - [ ] Poll raw NMEA 0183 data in Windows
 - [ ] (Optional) Map the NMEA data to Google Earth from U-Center *KML file from "Database Export" command in U-Center*
-- [ ] Configure the NEO-M8U Module to track GPS, GLONASS, and Galileo Satellites in ROS/Linux
+- [ ] Configure the NEO-M8U Module to track GPS, GLONASS, and Galileo Satellites in Linux
+- [ ] Configure the NEO-M8U Module to track GPS, GLONASS, and Galileo Satellites in ROS
 - [ ] Poll & bag "NavSatFix" data specified by: http://docs.ros.org/api/sensor_msgs/html/msg/NavSatFix.html
 - [ ] (Optional) Map the NavSatFix data to Bing Maps or others depending on API's and time availabe.
 
@@ -64,7 +65,51 @@ Cool! :squirrel:
 The main goal of this section is to parse NMEA 1803 strings from the U-Center application so that we can decipher the receiver's position in latitude and longitude for any Global Navigation Satellite System.
 
 ## For Configuration in Linux :penguin: via Wine (Windows Emulator)
-Ensure that the Linux operating system is Ubuntu and is a version greater than or equal to v16.
+Ensure that the Linux operating system is Ubuntu and is a version greater than or equal to v16. Also ensure that the architecture your processor uses is NOT ARM. Wine does not support ARM architecture! F
+
+Follow these steps:
+
+1. Download the Wine Binary Package by following this link and proceeding through the "Online" steps.
+
+https://wiki.winehq.org/Ubuntu
+
+The terminal inputs should look like the following for a 64-bit Ubuntu system:
+
+sudo dpkg --add-architecture i386
+wget -nc https://dl.winehq.org/wine-builds/Release.key
+sudo apt-key add Release.key
+sudo apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/
+
+sudo apt-get update
+sudo apt-get install --install-recommends winehq-stable
+
+2. Run the command: winecfg
+3. The Wine configuration window will open. Accept any downloads and installs to mono and gecko packages.
+4. Under the "Applications" Tab, select "Windows Version" and you MUST select Windows 10. U-Center does not support any other Windows OS. Save the configuration settings and exit the configuration window.
+5. Download and install the latest version of U-Center from the following link:
+
+https://www.u-blox.com/en/product/u-center-windows
+
+6. Read the note below first, then run the commands:
+
+sudo adduser YOUR_USERNAME dialout
+cd ~/.wine/dosdevices
+ls
+ln -s/dev/ttyACM0 com1
+sudo reboot
+
+Note: YOUR_USERNAME should be the name you use on your PC, and most importantly the com port may not be com1. The com port of the NEO-M8U module must be checked prior to these steps to ensure you are on the correct one.
+
+7. After reboot, open U-Center and connect the NEO-M8U module to your PC. 
+8. Continue off of Step 3. in the Windows U-Center SQI Configuration section above.
+9. If there is no communication between the NEO-M8U and U-Center, run the following commands:
+
+unlink com1
+ln -s /dev/ttyACM0 com1
+
+Congratulations! You should now be able to,
+- [x] Configure the NEO-M8U Module to track GPS, GLONASS, and Galileo Satellites in Linux
+Cool! :squirrel:
 
 ## For Configuration in Linux :penguin: via ROS
 Ensure that the ROS system you are working with is the Kinetic distribution. Download the NEO-M8U.yaml configuration file in my github.
