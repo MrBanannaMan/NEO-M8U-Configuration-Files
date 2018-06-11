@@ -13,7 +13,11 @@ GNSS Configuration for the NEO-M8U Configuration via .yaml file in ROS using Kum
 ### Installing U-Center:
 Download the latest version of U-Center from Ublox's website by clicking the following link.
 
-https://www.u-blox.com/en/product/u-center-windows
+https://www.u-blox.com/en/product/u-center-windows - NOTE: Very important - when installing, expand the "Drivers" and check the GNSS driver box and NOT the Windows USB driver box.
+
+Download the Virtual COM Port (VCP) Driver by Ublox from https://www.u-blox.com/en/product-resources/2673The
+
+After installation of the VCP driver, in Device Managers there should be a designated U-Blox COM port which will be used to communicate with the NEO-M8U module.
 
 With U-Center, the NEO-M8U module can be configured three different ways, however we will only explore the SQI flash method for permanent configuration as it is the most useful given our time restraints.
 
