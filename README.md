@@ -118,6 +118,18 @@ Cool! :squirrel:
 ## For Configuration in Linux :penguin: via ROS
 Ensure that the ROS system you are working with is the Kinetic distribution. Download the NEO-M8U.yaml configuration file in my github.
 
+### For the NEO-M8T (Timing Module)
+1. Clone this repo instead of the latter: https://github.com/flynneva/ublox.git2 
+2. Go into ~/catkin_ws/src/ublox/ublox_gps/src and open node.cpp 
+3. On line 124, change: nh->param("device", device_, std::string("/dev/ttyACM0")); to nh->param("device", device_, std::string("/dev/ttyACM1"));
+4. On line 134, change: getRosUint("uart1/baudrate", baudrate_, 9600); to getRousUint("uart1/baudrate", baudrate_, 115200);
+5. Go into ~/catkin_ws/src/ublox/launch and open ublox_device.launch
+6. Replace line 4 with: <arg name="node_name" default="ublox_gps"
+7. Replace line 5 with: <arg name="param_file_name" default="Test"
+8. Do a ROSlaunch of the node: roslaunch ublox_gps ublox_device.launch
+9. In another terminal, poll the NMEA latitude and longitude GNSS data from: rostopic echo /ublox_gps/fix
+
+### For the NEO-M8U (High-Precision GNSS Module)
 
 
 
