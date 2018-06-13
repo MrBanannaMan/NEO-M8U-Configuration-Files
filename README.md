@@ -65,7 +65,11 @@ Congratulations! You have just completed configuring the NEO-M8U module:
 
 Cool! :squirrel:
 
-Once connected to the NEO-M8U module's Simply play around with the GUI in U-Center to view the satellite strength, availability, deviation, and more.
+Once connected to the NEO-M8U module's virtual COM port, the auto-bauding and pre-configured file should be setup to begin polling the NMEA data behind the scenes. Given that you are outdoors, you should start to see satellites being picked up by the receiver, their strengths, and eventually a 2D or a 3D (internal IMU in NEO-M8U is 3D) Fix should take place.
+Simply play around with the GUI in U-Center to view the satellite strength, availability, deviation, and more.
+
+Et Voila! You have just completed:
+- [x] Poll NMEA 0183 data in Windows and view satellite strength, availability, deviation, etc.
 
 ### U-Center Data Polling
 The main goal of this section is to parse NMEA 1803 strings from the U-Center application so that we can decipher the receiver's position in latitude and longitude for any Global Navigation Satellite System.
@@ -101,7 +105,7 @@ https://www.u-blox.com/en/product/u-center-windows
 sudo adduser YOUR_USERNAME dialout
 cd ~/.wine/dosdevices
 ls
-ln -s/dev/ttyACM0 com1
+ln -s/dev/ttyACM1 com1
 sudo reboot
 
 Note: YOUR_USERNAME should be the name you use on your PC, and most importantly the com port may not be com1. The com port of the NEO-M8U module must be checked prior to these steps to ensure you are on the correct one.
@@ -111,7 +115,7 @@ Note: YOUR_USERNAME should be the name you use on your PC, and most importantly 
 9. If there is no communication between the NEO-M8U and U-Center, run the following commands:
 
 unlink com1
-ln -s /dev/ttyACM0 com1
+ln -s /dev/ttyACM1 com1
 
 Congratulations! You should now be able to,
 - [x] Configure the NEO-M8U Module to track GPS, GLONASS, and Galileo Satellites in Linux
