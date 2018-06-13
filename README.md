@@ -72,7 +72,11 @@ Et Voila! You have just completed:
 - [x] Poll NMEA 0183 data in Windows and view satellite strength, availability, deviation, etc.
 
 ### Map the NMEA 0183 data to Google Maps in U-Center
-The main goal of this section is to parse NMEA 1803 strings from the U-Center application so that we can decipher the receiver's position in latitude and longitude for any Global Navigation Satellite System.
+This section is optional but it allows us to visualise where the NEO-M8U thinks we are and can be shown on google Maps as well as google Maps satellite option. Note that an internet connection is required to do this in REAL TIME. In offline mode, the NMEA data must be saved to a log file which can later be opened in Google Maps following the same steps as in online mode.
+
+1. Open U-Center with the NEO-M8U receiver connected to the PC via the mPCIe to USB adapter and connected to the virtual COM port.
+2. On the toolbar, File->Database Export->Google Map Html...
+Save the .html file anywhere you'd like and open the file to view the coordinates in google Maps.
 
 ## For Configuration in Linux :penguin: via Wine (Windows Emulator)
 Ensure that the Linux operating system is Ubuntu and is a version greater than or equal to v16. Also ensure that the architecture your processor uses is NOT ARM. Wine does not support ARM architecture! F
