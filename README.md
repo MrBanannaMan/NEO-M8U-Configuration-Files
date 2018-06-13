@@ -1,11 +1,11 @@
 # :space_invader: NEO-M8U-Configuration :space_invader:
 GNSS Configuration for the NEO-M8U Configuration via .yaml file in ROS using Kumar Robotics Ublox ROS drivers and in Windows via Ublox's U-Center. By completing this "tutorial" you should be able to perform the following:
 
-- [ ] Configure the NEO-M8U Module to track GPS, GLONASS, and Galileo Satellites in Windows
-- [ ] Poll raw NMEA 0183 data in Windows
+- [ ] Configure the NEO-M8U Module to track GPS, GLONASS, and Galileo Satellites in Windows 10
+- [ ] Poll NMEA 0183 data in Windows and view satellite strength, availability, deviation, etc.
 - [ ] (Optional) Map the NMEA data to Google Earth from U-Center *KML file from "Database Export" command in U-Center*
-- [ ] Configure the NEO-M8U Module to track GPS, GLONASS, and Galileo Satellites in Linux
-- [ ] Configure the NEO-M8U Module to track GPS, GLONASS, and Galileo Satellites in ROS
+- [ ] Configure the NEO-M8U Module to track GPS, GLONASS, and Galileo Satellites in Linux via Wine
+- [ ] Configure the NEO-M8U Module to track GPS, GLONASS, and Galileo Satellites in ROS via sensor_msgs/NavSatFix.h
 - [ ] Poll & bag "NavSatFix" data specified by: http://docs.ros.org/api/sensor_msgs/html/msg/NavSatFix.html
 - [ ] (Optional) Map the NavSatFix data to Bing Maps or others depending on API's and time availabe.
 
@@ -60,10 +60,12 @@ With U-Center, the NEO-M8U module can be configured three different ways, howeve
 ![alt text](http://andrea-toscano.com/wp-content/uploads/2015/05/U-Center-save-configuration.png)
 
 
-Congratulations! You should now be able to,
-- [x] Configure the NEO-M8U Module to track GPS, GLONASS, and Galileo Satellites in Windows
+Congratulations! You have just completed configuring the NEO-M8U module:
+- [x] Configure the NEO-M8U Module to track GPS, GLONASS, and Galileo Satellites in Windows 10
 
 Cool! :squirrel:
+
+Once connected to the NEO-M8U module's Simply play around with the GUI in U-Center to view the satellite strength, availability, deviation, and more.
 
 ### U-Center Data Polling
 The main goal of this section is to parse NMEA 1803 strings from the U-Center application so that we can decipher the receiver's position in latitude and longitude for any Global Navigation Satellite System.
