@@ -41,7 +41,7 @@ With U-Center, the NEO-M8U module can be configured three different ways, howeve
 
 ![alt text](http://andrea-toscano.com/wp-content/uploads/2015/05/U-Center-magic-wand.png)
 
-4. On the toolbar, go to Tools -> GNSS Configuration and select the Configuration_Ublox_Neo_M8U.txt configuration file downloaded from my github. Make sure the "Store Configuration in BBR/Flash" box is checked!
+4. On the toolbar, go to Tools -> GNSS Configuration and select File->GNSS. Browse and select the "Configuration_Ublox_Neo_M8U.txt" configuration file downloaded from my github. Make sure the "Store Configuration in BBR/Flash" box is checked!
 
 ![alt text](http://andrea-toscano.com/wp-content/uploads/2015/05/U-Center-GNSS-Configuration-300x251.png)
 
@@ -51,7 +51,7 @@ With U-Center, the NEO-M8U module can be configured three different ways, howeve
 
 ![alt text](http://andrea-toscano.com/wp-content/uploads/2015/05/U-Center-Message-View-220x300.png)
 
-6. If any other parameters are desired, input them into the UBX -> CFG settings and click "Send" when you are done on the bottom left toolbar.
+6. If any other parameters are desired, input them into the UBX -> CFG settings and click "Send" when you are done on the bottom left toolbar. Note that I made this configuration file specifically for this receiver, so be sure that you are aware of what you are changing in the configurations before proceeding.
 
 ![alt text](http://andrea-toscano.com/wp-content/uploads/2015/05/U-Center-CFG.png)
 
@@ -71,7 +71,7 @@ Simply play around with the GUI in U-Center to view the satellite strength, avai
 Et Voila! You have just completed:
 - [x] Poll NMEA 0183 data in Windows and view satellite strength, availability, deviation, etc.
 
-### U-Center Data Polling
+### Map the NMEA 0183 data to Google Maps in U-Center
 The main goal of this section is to parse NMEA 1803 strings from the U-Center application so that we can decipher the receiver's position in latitude and longitude for any Global Navigation Satellite System.
 
 ## For Configuration in Linux :penguin: via Wine (Windows Emulator)
