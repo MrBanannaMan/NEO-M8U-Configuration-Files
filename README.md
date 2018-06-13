@@ -6,7 +6,7 @@ GNSS Configuration for the NEO-M8U Configuration via .yaml file in ROS using Kum
 - [ ] (Optional) Map the NMEA data to Google Earth from U-Center *KML file from "Database Export" command in U-Center*
 - [ ] Configure the NEO-M8U Module to track GPS, GLONASS, and Galileo Satellites in Linux via Wine
 - [ ] Configure the NEO-M8U Module to track GPS, GLONASS, and Galileo Satellites in ROS via sensor_msgs/NavSatFix.h
-- [ ] Poll & bag "NavSatFix" data specified by: http://docs.ros.org/api/sensor_msgs/html/msg/NavSatFix.html
+- [ ] Poll & Bag "NavSatFix" data specified by: http://docs.ros.org/api/sensor_msgs/html/msg/NavSatFix.html
 - [ ] (Optional) Map the NavSatFix data to Bing Maps or others depending on API's and time availabe.
 
 ## For Configuration in Windows via U-Center:
@@ -77,6 +77,10 @@ This section is optional but it allows us to visualise where the NEO-M8U thinks 
 1. Open U-Center with the NEO-M8U receiver connected to the PC via the mPCIe to USB adapter and connected to the virtual COM port.
 2. On the toolbar, File->Database Export->Google Map Html...
 Save the .html file anywhere you'd like and open the file to view the coordinates in google Maps.
+3. If you are exporting a datalog saved offline then you need to make sure that you have opened the log, pressed play, and let the log file finish it's entire recording session as shown by the progress bar on the toolbar.
+
+You have just completed:
+- [x] Map the NMEA data to Google Earth from U-Center *KML file from "Database Export" command in U-Center*
 
 ## For Configuration in Linux :penguin: via Wine (Windows Emulator)
 Ensure that the Linux operating system is Ubuntu and is a version greater than or equal to v16. Also ensure that the architecture your processor uses is NOT ARM. Wine does not support ARM architecture! F
@@ -126,20 +130,28 @@ Congratulations! You should now be able to,
 Cool! :squirrel:
 
 ## For Configuration in Linux :penguin: via ROS
-Ensure that the ROS system you are working with is the Kinetic distribution. Download the NEO-M8U.yaml configuration file in my github.
+Ensure that the ROS system you are working with is the Kinetic distribution. 
 
-### For the NEO-M8T (Timing Module)
-1. Clone this repo instead of the latter: https://github.com/flynneva/ublox.git2 
+### For the NEO-M8T (Timing GNSS Module)
+1. Clone this repo into your catkin workspace and ensure to perform a catkin_make command for the repo: https://github.com/flynneva/ublox.git 
 2. Go into ~/catkin_ws/src/ublox/ublox_gps/src and open node.cpp 
 3. On line 124, change: nh->param("device", device_, std::string("/dev/ttyACM0")); to nh->param("device", device_, std::string("/dev/ttyACM1"));
 4. On line 134, change: getRosUint("uart1/baudrate", baudrate_, 9600); to getRousUint("uart1/baudrate", baudrate_, 115200);
 5. Go into ~/catkin_ws/src/ublox/launch and open ublox_device.launch
 6. Replace line 4 with: <arg name="node_name" default="ublox_gps"
-7. Replace line 5 with: <arg name="param_file_name" default="Test"
+7. Replace line 5 with: <arg name="param_file_name" default="NEO-M8U"
+8. Download the NEO-M8U.yaml configuration file in my github and place it into the directory: ~/catkin_ws/src/ublox/ublox_gps/config
 8. Do a ROSlaunch of the node: roslaunch ublox_gps ublox_device.launch
-9. In another terminal, poll the NMEA latitude and longitude GNSS data from: rostopic echo /ublox_gps/fix
+9. In another terminal, poll the NMEA latitude and longitude GNSS data from: rostopic echo /ublox_gps/fix - This topic outputs the ROS file type of sensor_msgs/NavSatFix which contains latitude, longitude, altitude, etc.
 
 ### For the NEO-M8U (High-Precision GNSS Module)
+1. Clone this repo into your catkin workspace and ensure to perform a catkin_make command for the repo: https://github.com/KumarRobotics/ublox.git
+2. Follow steps 2. through 9. for the NEO-M8T Module in the section above to configure and poll the sensor_msgs/NavSatFix data
+
+You are now able to:
+- [X] Configure the NEO-M8U & NEO-M8T Module to track GPS, GLONASS, and Galileo Satellites in ROS via sensor_msgs/NavSatFix.h
+
+
 
 
 
