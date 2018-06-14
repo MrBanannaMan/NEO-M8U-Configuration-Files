@@ -163,14 +163,21 @@ To determine the TIME of the DAY and get a TIMESTAMP for when the location or st
 
 The significance of the published values are:
 iTOW: (Unit - ms) GPS Time of the Week - This is the important one. See the note below on how to use this value
+
 clkB: (Unit - ns) Clock Bias - See notes below
+
 clkD: (Unit - ns/s) Clock Drift - See notes below
+
 tAcc: (Unit - ns) Time Accuracy Estimate - See notes below
+
 fAcc: (Unit - ps/s) Frequency Accuracy Estimate
 
 GPS Time of the Week - This is the CALCULATED time on the receiver. It is typically very accurate to within the ms. It will ALWAYS report the UTC time (standard GPS time).
+
 Clock Bias - This is the ERROR between the local time and the calculated time. As mentioned above, typically within the ms.
+
 Clock Drift - This is the RATE at which the Clock Bias or error is changing.
+
 Time Accuracy Estimate - 
 
 
