@@ -9,6 +9,8 @@ GNSS Configuration for the NEO-M8U Configuration via .yaml file in ROS using Kum
 - [ ] Poll & Bag "NavSatFix" data specified by: http://docs.ros.org/api/sensor_msgs/html/msg/NavSatFix.html
 - [ ] (Optional) Map the NavSatFix data to Bing Maps or others depending on API's and time availabe.
 
+All configuration files used in this tutorial were referenced and made using the document: https://www.u-blox.com/sites/default/files/products/documents/u-blox8-M8_ReceiverDescrProtSpec_%28UBX-13003221%29_Public.pdf
+
 ## For Configuration in Windows via U-Center:
 ### Installing U-Center:
 Download the latest version of U-Center from Ublox's website by clicking the following link.
