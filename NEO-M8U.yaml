@@ -8,17 +8,20 @@ debug: 1
 
 # Sub-Section 0 PRT - Port, USB, UART, SPI and DDC settings
 
-device: /dev/ttyACM0
+device: /dev/ttyACM1
 
 uart1:
-  baudrate: 115200    # I think the NEO-M8U uses the USB port with the Spaceley, so this may be unnecessary.. 
-                      # Doesn't matter though
-  #in: 0                Does not allow any UART communication - Default everything allowed
-  #out: 32              Allows only RTCM3 as output protocl - Default everything allowed, RTCM is for RTK i want 2 remove
+  baudrate: 115200
+  in: 1               # UBX Configuration Inputs Only                
+  out: 2              # NMEA Outputs Only
   
 frame_id: gps
 
 # Sub-Section 1 MSG - Message Settings (enable/disable, update rate)
+subscribe:
+  all: true
+  aid:
+    all: false
 
 # Sub-Section 2 INF - Information Output Settings (Errors, Warnings, Notice, Test etc.)
 inf:
@@ -46,12 +49,13 @@ dat:
   set: false
 
 # RATE Parameters
-rate: 1             # Measurement rate in Hz which is 1 relative to nav_rate
-nav_rate: 1         # Number of Measurement cycles
+rate: 4             # Measurement rate in Hz which is 1 relative to nav_rate
+nav_rate: 4         # Number of Measurement cycles
 # Note that for NEO-M8U which is a UDR device 1 is reccommended for nav_rate
 
 # SBAS Parameters
-
+sbas:
+  usage: 1          # Using SBAS as a Geo ranging source i.e. Augmenting satellites for better coverage
                      
 # NMEA Parameters
 nmea:
