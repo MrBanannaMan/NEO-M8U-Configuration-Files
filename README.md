@@ -151,8 +151,27 @@ Ensure that the ROS system you are working with is the Kinetic distribution.
 You are now able to:
 - [X] Configure the NEO-M8U & NEO-M8T Module to track GPS, GLONASS, and Galileo Satellites in ROS via sensor_msgs/NavSatFix.h
 
+### Node Topics and Important Information
+#### Latitude & Longitude
+As expressed in the configuration tutorial, by echoing the /ublox_gps/fix topic we obtain the latitude, longitude, altitude and also the STATUS of the fix. When the status is '-1' then the receiver has NO fix and therefore has NO information and must continue to search for satellites. When the status is '+1' the receiver has found a fix and will output valid positioning information. By echoing this topic, you will see the following on the terminal:
 
+#### Internal IMU
+To poll the receiver for the internal IMU values as well as velocity, you can echo the /ublox_gps/fix_velocity topic.
 
+#### TIMESTAMP
+To determine the TIME of the DAY and get a TIMESTAMP for when the location or stereonet was taken, we have to echo a different topic: /ublox_gps/navclock
+
+The significance of the published values are:
+iTOW: (Unit - ms) GPS Time of the Week - This is the important one. See the note below on how to use this value
+clkB: (Unit - ns) Clock Bias - See notes below
+clkD: (Unit - ns/s) Clock Drift - See notes below
+tAcc: (Unit - ns) Time Accuracy Estimate - See notes below
+fAcc: (Unit - ps/s) Frequency Accuracy Estimate
+
+GPS Time of the Week - This is the CALCULATED time on the receiver. It is typically very accurate to within the ms. It will ALWAYS report the UTC time (standard GPS time).
+Clock Bias - This is the ERROR between the local time and the calculated time. As mentioned above, typically within the ms.
+Clock Drift - This is the RATE at which the Clock Bias or error is changing.
+Time Accuracy Estimate - 
 
 
 
