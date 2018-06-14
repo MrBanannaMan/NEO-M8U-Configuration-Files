@@ -162,13 +162,14 @@ To poll the receiver for the internal IMU values as well as velocity, you can ec
 To determine the TIME of the DAY and get a TIMESTAMP for when the location or stereonet was taken, we have to echo a different topic: /ublox_gps/navclock
 
 The significance of the published values are:
+
 iTOW: (Unit - ms) GPS Time of the Week - This is the important one. See the note below on how to use this value
 
 clkB: (Unit - ns) Clock Bias - See notes below
 
 clkD: (Unit - ns/s) Clock Drift - See notes below
 
-tAcc: (Unit - ns) Time Accuracy Estimate - See notes below
+tAcc: (Unit - ns) Time Accuracy Estimate
 
 fAcc: (Unit - ps/s) Frequency Accuracy Estimate
 
@@ -178,7 +179,6 @@ Clock Bias - This is the ERROR between the local time and the calculated time. A
 
 Clock Drift - This is the RATE at which the Clock Bias or error is changing.
 
-Time Accuracy Estimate - 
 
 
 
