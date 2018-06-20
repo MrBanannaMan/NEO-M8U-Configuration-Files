@@ -181,11 +181,42 @@ Clock Bias - This is the ERROR between the local time and the calculated time. A
 
 Clock Drift - This is the RATE at which the Clock Bias or error is changing.
 
+### Mapping NavSatFix data in Bing Maps with ROS (ONLINE ONLY)
+#### Mapviz ROS Driver Installation
+"Mapviz" is the ROS tool we will use to plot the GNSS data onto a satellite mapping system in real-time while connected to the internet. 
 
+1. Go to your ~/catkin_ws/src directory and clone marti_messages, marti_common, and mapviz repositories found in these links:
+https://github.com/swri-robotics/marti_messages.git
+https://github.com/swri-robotics/marti_common.git
+https://github.com/swri-robotics/mapviz.git
 
+Note: It is crucial that you do NOT build your workspace prior to having all three of these repositories cloned into your workspace. Building individual packages may cause errors and the installation process may have to be redone.
 
+2. Build your catkin workspace:
 
+cd ~/catkin_ws
+catkin_make
+shoot the shit with stu while it builds or comment on how garbage jordan's laptop is
 
+#### Mapviz ROS Driver Configuration
+In order to subscribe to the NavSatFix topic linked to the ublox or NEO-M8U GNSS module's node, we need to first launch the GNSS node in a terminal:
+
+roslaunch ublox_gps ublox_device.launch
+
+In a seperate terminal, launch the mapviz node:
+
+roslaunch mapviz mapviz.launch
+
+The mapviz GUI should now appear in a seperate window. 
+1. Leave the Config drop-down menus as Fixed Frame: Far Field and Target Frame: <none>. 
+2. At the bottom of the GUI, click "Add" and select "navsat" and "OK".
+3. In the navsat display, select the "Topic" to be: /ublox_gps/fix. The "Status" will read "OK" if there are messages successfully being receieved from the GNSS module, or it will say "No messages received" if the GNSS module is not publishing any information to ROS.
+4. At the bottom of the GUI, click "Add" and select "tile_map" and "OK".
+5. As the "Source" select "Bing Maps (terrain)" and enter the API key as: (Directly message me for my Bing Maps API key, otherwise generate your own from Microsoft). The maps should now appear in the GUI on the right hand side and the navsat topic should be visually seen on the map.
+
+With INTERNET, you are now able to:
+
+- [X] (Optional) Map the NavSatFix data to Bing Maps (with Internet)
 
 
 
