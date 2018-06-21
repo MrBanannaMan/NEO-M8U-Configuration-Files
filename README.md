@@ -161,19 +161,25 @@ As expressed in the configuration tutorial, by echoing the /ublox_gps/fix topic 
 To poll the receiver for the internal IMU values as well as velocity, you can echo the /ublox_gps/fix_velocity topic.
 
 #### TIMESTAMP
-To determine the TIME of the DAY and get a TIMESTAMP for when the location or stereonet was taken, we have to echo a different topic: /ublox_gps/navclock
+To determine the TIME of the DAY and get a TIMESTAMP for when the location or stereonet was taken, we have to echo a different topic: /ublox_gps/navpvt which stands for Navigation Position Velocity Time
 
 The significance of the published values are:
 
-iTOW: (Unit - ms) GPS Time of the Week - This is the important one. See the note below on how to use this value
+iTOW: (Unit - ms) GPS Time of the Week since epoch. This is the most UNRELIABLE time that we can retrieve.
 
-clkB: (Unit - ns) Clock Bias - See notes below
+year: (Unit - y) Year - The given year in UTC 
 
-clkD: (Unit - ns/s) Clock Drift - See notes below
+month: (Unit - m) Month of the year, range 1 -> 12 in UTC
 
-tAcc: (Unit - ns) Time Accuracy Estimate
+day: (Unit - d) Day of the month, range 1 -> 31 in UTC
 
-fAcc: (Unit - ps/s) Frequency Accuracy Estimate
+hour: (Unit - h) Hour of the day range 0 -> 23 in UTC
+
+min: (Unit - min) Minute of the hour, range 0 -> 59 in UTC
+
+sec: (Unit - sec) Second of the minute, range 0 -> 60 in UTC
+
+fixType: (Unit - N/a) GNSS Fix Type: 0 = no fix, 1 = Dead-Reckoning only, 2 = 2-D Fix, 3 = 3-D Fix, 4 = GNSS + Dead Reckoning combined, 5 = Time only Fix. Where, Fix Type = 0, 1, 5 will NOT give an ACCURATE position, and should be discarded when processing our position.
 
 GPS Time of the Week - This is the CALCULATED time on the receiver. It is typically very accurate to within the ms. It will ALWAYS report the UTC time (standard GPS time).
 
